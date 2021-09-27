@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1073172203945",
+    "project_id": "todolistproject-b7f83",
+    "storage_bucket": "todolistproject-b7f83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073172203945:android:9892f9204ae39882b85cb8",
+        "android_client_info": {
+          "package_name": "com.madi.tdlp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073172203945-plr24ng5fmeu8tfm5v7n4hn559elt9t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfXBnb8RfdmxcstkHmO8ww9xHZhjJ-4uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073172203945-plr24ng5fmeu8tfm5v7n4hn559elt9t2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
