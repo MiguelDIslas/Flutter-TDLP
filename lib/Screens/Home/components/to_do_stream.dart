@@ -42,6 +42,7 @@ class ToDoStream extends StatelessWidget {
           .where("date",
               isGreaterThan: _now.subtract(const Duration(days: 1)),
               isLessThan: _now.add(const Duration(days: 1)))
+          .orderBy("date")
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {

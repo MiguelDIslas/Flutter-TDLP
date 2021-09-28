@@ -10,8 +10,8 @@ import '../../Dashboard/dashboard.dart';
 import '../../../components/background_with_images.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/have_account.dart';
-import '../../../components/or_widget.dart';
-import '../../../components/social_media.dart';
+//import '../../../components/or_widget.dart';
+//import '../../../components/social_media.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/customtoast.dart';
 
@@ -137,11 +137,11 @@ class _BodyState extends State<Body> {
               information: 'Already have an account? ',
               onTap: () => Navigator.pushNamed(context, LoginScreen.routeName),
             ),
-            const OrDivider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[const SocialMediaSU()],
-            ),
+            //const OrDivider(),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: <Widget>[const SocialMediaSU()],
+            // ),
           ],
         ),
       ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import 'to_do_stream.dart';
-import 'legend_info.dart';
+import 'info_message.dart';
 import '../../../constants.dart';
 import '../../../components/background_app.dart';
 
@@ -22,6 +24,7 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     final date = DateTime.now();
     final text = date.hour >= 5 && date.hour <= 11
         ? "Morning 🌕"
@@ -50,12 +53,36 @@ class _BodyState extends State<Body> {
                 style:
                     const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              Text(
-                "$dateFormat",
-                style: const TextStyle(fontSize: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    width: size.width / 6.5,
+                    child: TextButton(
+                        onPressed: () {
+                          Alert(
+                            context: context,
+                            style: const AlertStyle(
+                              descStyle: const TextStyle(fontSize: 14),
+                            ),
+                            type: AlertType.info,
+                            content: InfoMessage(),
+                          ).show();
+                        },
+                        child: const Icon(
+                          Icons.info,
+                          color: kPrimaryColor,
+                        )),
+                  ),
+                  Container(
+                      width: size.width / 2,
+                      child: Text("$dateFormat",
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(fontSize: 15))),
+                ],
               ),
               ToDoStream(userId: loggedInUser.uid),
-              LegendInfo(),
             ],
           ),
         ),
