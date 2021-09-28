@@ -31,6 +31,8 @@
 .pub-cache/
 .pub/
 /build/
+/migue/
+**/migue/upload-keystore.jks
 
 # Web related
 lib/generated_plugin_registrant.dart
