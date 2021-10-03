@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-///import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
 import 'components/body.dart';
-//import '../Dashboard/dashboard.dart';
+// import '../Dashboard/dashboard.dart';
 
 class SignUp extends StatelessWidget {
   static String routeName = "/signup";

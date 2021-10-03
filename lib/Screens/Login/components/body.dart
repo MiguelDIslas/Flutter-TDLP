@@ -12,8 +12,8 @@ import '../../../components/background_with_images.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/have_account.dart';
 import '../../../components/forgot_password.dart';
-import '../../../components/or_widget.dart';
-import '../../../components/social_media.dart';
+// import '../../../components/or_widget.dart';
+// import '../../../components/social_media.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/customtoast.dart';
 
@@ -134,11 +134,11 @@ class _BodyState extends State<Body> {
               text: 'Sign Up',
               onTap: () => Navigator.pushNamed(context, SignUp.routeName),
             ),
-            OrDivider(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[const SocialMediaSU()],
-            ),
+            // OrDivider(),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: <Widget>[const SocialMediaSU()],
+            // ),
           ],
         ),
       ),
