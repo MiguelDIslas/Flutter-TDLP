@@ -3,6 +3,7 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../RestorePassword/restore_password.dart';
 import '../../SignUp/sign_up_screen.dart';
@@ -11,8 +12,8 @@ import '../../../components/background_with_images.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/have_account.dart';
 import '../../../components/forgot_password.dart';
-//import '../../../components/or_widget.dart';
-//import '../../../components/social_media.dart';
+import '../../../components/or_widget.dart';
+import '../../../components/social_media.dart';
 import '../../../components/rounded_input_field.dart';
 import '../../../components/customtoast.dart';
 
@@ -29,6 +30,7 @@ class _BodyState extends State<Body> {
   TextEditingController _password = TextEditingController();
   bool spinner = false;
   final toast = FToast();
+  bool showPassword = true;
 
   @override
   void initState() {
@@ -71,17 +73,20 @@ class _BodyState extends State<Body> {
             RoundedInputField(
               hintText: 'Write your email',
               obscureText: false,
-              onChanged: (value) {},
               inputType: TextInputType.emailAddress,
               controller: _email,
             ),
             RoundedInputField(
               hintText: 'Write your password',
-              obscureText: true,
+              obscureText: showPassword,
               icon: Icons.lock,
-              suffixIcon: Icons.remove_red_eye,
+              suffixIcon: showPassword
+                  ? FontAwesomeIcons.eye
+                  : FontAwesomeIcons.eyeSlash,
               controller: _password,
-              onChanged: (value) {},
+              functionShow: () {
+                setState(() => showPassword = !showPassword);
+              },
             ),
             ForgotPassword(
                 onTap: () => Navigator.popAndPushNamed(
@@ -129,11 +134,11 @@ class _BodyState extends State<Body> {
               text: 'Sign Up',
               onTap: () => Navigator.pushNamed(context, SignUp.routeName),
             ),
-            // OrDivider(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: <Widget>[const SocialMediaSU()],
-            // ),
+            OrDivider(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[const SocialMediaSU()],
+            ),
           ],
         ),
       ),

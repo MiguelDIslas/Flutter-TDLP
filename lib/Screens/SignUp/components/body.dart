@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../Login/login_screen.dart';
 import '../../Dashboard/dashboard.dart';
@@ -28,6 +29,7 @@ class _BodyState extends State<Body> {
   TextEditingController _password = TextEditingController();
   bool spinner = false;
   final toast = FToast();
+  bool showPassword = true;
 
   @override
   void initState() {
@@ -71,17 +73,20 @@ class _BodyState extends State<Body> {
                   RoundedInputField(
                     hintText: 'Write an email',
                     obscureText: false,
-                    onChanged: (value) {},
                     inputType: TextInputType.emailAddress,
                     controller: _email,
                   ),
                   RoundedInputField(
                     hintText: 'At least 6 characters',
-                    obscureText: true,
+                    obscureText: showPassword,
                     icon: Icons.lock,
-                    suffixIcon: Icons.remove_red_eye,
+                    suffixIcon: showPassword
+                        ? FontAwesomeIcons.eye
+                        : FontAwesomeIcons.eyeSlash,
                     controller: _password,
-                    onChanged: (value) {},
+                    functionShow: () {
+                      setState(() => showPassword = !showPassword);
+                    },
                   ),
                 ],
               ),
